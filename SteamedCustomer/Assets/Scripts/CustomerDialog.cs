@@ -12,6 +12,10 @@ public class CustomerDialog : MonoBehaviour {
 	public Button csrResponse3;
 	public Button csrResponse4;
 
+	public Sprite face_neutral;
+	public Sprite face_happy;
+	public Sprite face_angry;
+
 	XmlDocument dialogScript;
 	XmlNodeList scenarioList;
 	int emoLevel;
@@ -20,6 +24,7 @@ public class CustomerDialog : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentScenario = 0;
+		this.gameObject.GetComponent<SpriteRenderer>().sprite = face_neutral;
 
 		InitScript();
 		LoadScenario(currentScenario);
@@ -50,6 +55,7 @@ public class CustomerDialog : MonoBehaviour {
 			else if (items.Name == "emoLevel")
 			{
 				emoLevel = int.Parse(items.InnerText);
+				setFace();
 				Debug.Log("Start emo: " + emoLevel);
 			}
 			else if (items.Name == "response1")
@@ -83,8 +89,25 @@ public class CustomerDialog : MonoBehaviour {
 	public void changeEmo(int diff, int nextprompt)
 	{
 		emoLevel += diff;
+
+		if (emoLevel > 100)
+			emoLevel = 100;
+		else if (emoLevel < 0)
+			emoLevel = 0;
 		Debug.Log("New emo: " + emoLevel);
 
+		setFace();
+
 		LoadScenario(nextprompt);
+	}
+
+	void setFace()
+	{
+		if (emoLevel > 70)
+			this.gameObject.GetComponent<SpriteRenderer>().sprite = face_happy;
+		else if (emoLevel < 30)
+			this.gameObject.GetComponent<SpriteRenderer>().sprite = face_angry;
+		else
+			this.gameObject.GetComponent<SpriteRenderer>().sprite = face_neutral;
 	}
 }

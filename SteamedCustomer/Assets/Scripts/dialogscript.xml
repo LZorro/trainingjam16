@@ -3,15 +3,15 @@
 <conversation>
 	<scenario>
 		<prompt>I DEMAND A REFUND! >:(</prompt>
-		<emoLevel>0</emoLevel>
-		<response1 diff="50" next="1">Yes, sir.</response1>
+		<emoLevel>50</emoLevel>
+		<response1 diff="30" next="1">Yes, sir.</response1>
 		<response2 diff="10" next="1">I guess...</response2>
 		<response3 diff="-10" next="2">Go away!</response3>
 		<response4 diff="-20" next="2">*flip the bird*</response4>
 	</scenario>
 	<scenario>
 		<prompt>Oh. Thank you.</prompt>
-		<response1 diff="50" next="3">Have a nice day!</response1>
+		<response1 diff="30" next="3">Have a nice day!</response1>
 		<response2 diff="20" next="3">You're welcome.</response2>
 		<response3 diff="0" next="3"></response3>
 		<response4 diff="0" next="3"></response4>
