@@ -3,7 +3,8 @@
 <scenario>
 	<prompt>I DEMAND A REFUND! >:(</prompt>
 	<emoLevel>-5</emoLevel>
-	<response>Yes, sir.</response>
-	<response>I guess...</response>
-	<response>Go away!</response>
+	<response1>Yes, sir.</response1>
+	<response2>I guess...</response2>
+	<response3>Go away!</response3>
+	<response4>*flip the bird*</response4>
 </scenario>
