@@ -1,10 +1,33 @@
 <?xml version='1.0' encoding='us-ascii'?>
 
-<scenario>
-	<prompt>I DEMAND A REFUND! >:(</prompt>
-	<emoLevel>-5</emoLevel>
-	<response1>Yes, sir.</response1>
-	<response2>I guess...</response2>
-	<response3>Go away!</response3>
-	<response4>*flip the bird*</response4>
-</scenario>
+<conversation>
+	<scenario>
+		<prompt>I DEMAND A REFUND! >:(</prompt>
+		<emoLevel>0</emoLevel>
+		<response1 diff="50" next="1">Yes, sir.</response1>
+		<response2 diff="10" next="1">I guess...</response2>
+		<response3 diff="-10" next="2">Go away!</response3>
+		<response4 diff="-20" next="2">*flip the bird*</response4>
+	</scenario>
+	<scenario>
+		<prompt>Oh. Thank you.</prompt>
+		<response1 diff="50" next="3">Have a nice day!</response1>
+		<response2 diff="20" next="3">You're welcome.</response2>
+		<response3 diff="0" next="3"></response3>
+		<response4 diff="0" next="3"></response4>
+	</scenario>
+	<scenario>
+		<prompt>SCREW YOU</prompt>
+		<response1 diff="50" next="3">I'm sorry!</response1>
+		<response2 diff="20" next="3">Whatever.</response2>
+		<response3 diff="-50" next="3">Yeah, get lost!</response3>
+		<response4 diff="0" next="3"></response4>
+	</scenario>
+	<scenario>
+		<prompt>GAME OVER</prompt>
+		<response1 diff="0" next="0"></response1>
+		<response2 diff="0" next="0">Click to restart.</response2>
+		<response3 diff="0" next="0"></response3>
+		<response4 diff="0" next="0"></response4>
+	</scenario>
+</conversation>

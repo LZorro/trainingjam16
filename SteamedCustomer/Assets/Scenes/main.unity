@@ -244,6 +244,7 @@ GameObject:
   - 222: {fileID: 284376277}
   - 114: {fileID: 284376276}
   - 114: {fileID: 284376275}
+  - 114: {fileID: 284376278}
   m_Layer: 5
   m_Name: CSR Button 1
   m_TagString: Untagged
@@ -307,7 +308,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 284376276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 284376278}
+        m_MethodName: buttonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &284376276
@@ -343,6 +355,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284376273}
+--- !u!114 &284376278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284376273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e8524d0c9d62b41b00ee6735b7b630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoDiff: 0
+  customer: {fileID: 1266752311}
 --- !u!1 &377347404
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +639,7 @@ GameObject:
   - 222: {fileID: 815542420}
   - 114: {fileID: 815542419}
   - 114: {fileID: 815542418}
+  - 114: {fileID: 815542421}
   m_Layer: 5
   m_Name: CSR Button 2
   m_TagString: Untagged
@@ -677,7 +703,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 815542419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 815542421}
+        m_MethodName: buttonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &815542419
@@ -713,6 +750,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815542416}
+--- !u!114 &815542421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 815542416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e8524d0c9d62b41b00ee6735b7b630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoDiff: 0
+  customer: {fileID: 1266752311}
 --- !u!1 &923993599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,10 +1052,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptFile: {fileID: 4900000, guid: da99664e7a7c7114e919af7520c2940a, type: 3}
   customerPrompt: {fileID: 83333732}
-  csrResponse1: {fileID: 529528707}
-  csrResponse2: {fileID: 1215501169}
-  csrResponse3: {fileID: 923993601}
-  csrResponse4: {fileID: 64139255}
+  csrResponse1: {fileID: 284376275}
+  csrResponse2: {fileID: 815542418}
+  csrResponse3: {fileID: 1890577308}
+  csrResponse4: {fileID: 2013625247}
 --- !u!1 &1857099177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1153,7 @@ GameObject:
   - 222: {fileID: 1890577310}
   - 114: {fileID: 1890577309}
   - 114: {fileID: 1890577308}
+  - 114: {fileID: 1890577311}
   m_Layer: 5
   m_Name: CSR Button 3
   m_TagString: Untagged
@@ -1166,7 +1217,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890577309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1890577311}
+        m_MethodName: buttonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1890577309
@@ -1202,6 +1264,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890577306}
+--- !u!114 &1890577311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890577306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e8524d0c9d62b41b00ee6735b7b630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoDiff: 0
+  customer: {fileID: 1266752311}
 --- !u!1 &1953825419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1349,7 @@ GameObject:
   - 222: {fileID: 2013625249}
   - 114: {fileID: 2013625248}
   - 114: {fileID: 2013625247}
+  - 114: {fileID: 2013625250}
   m_Layer: 5
   m_Name: CSR Button 4
   m_TagString: Untagged
@@ -1337,7 +1413,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2013625248}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2013625250}
+        m_MethodName: buttonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2013625248
@@ -1373,6 +1460,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2013625245}
+--- !u!114 &2013625250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2013625245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e8524d0c9d62b41b00ee6735b7b630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoDiff: 0
+  customer: {fileID: 1266752311}
 --- !u!1 &2129077124
 GameObject:
   m_ObjectHideFlags: 0
