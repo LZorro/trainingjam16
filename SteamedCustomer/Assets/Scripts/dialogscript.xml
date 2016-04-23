@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='us-ascii'?>
+
+<scenario>
+	<prompt>I DEMAND A REFUND! >:(</prompt>
+	<emoLevel>-5</emoLevel>
+	<response>Yes, sir.</response>
+	<response>I guess...</response>
+	<response>Go away!</response>
+</scenario>
