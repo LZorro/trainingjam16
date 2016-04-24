@@ -73,6 +73,7 @@ public class DragonController : MonoBehaviour {
 					weapon.GetComponent<SpriteRenderer>().enabled = true;
 					tempPos = this.transform.position;
 					tempPos.y -= 3.0f;
+					GameObject.Find("Stress Button").GetComponent<StressController>().increaseStressRate();
 				}
 			break;
 
@@ -121,13 +122,7 @@ public class DragonController : MonoBehaviour {
 		if (stallHealth.value <= 0)
 		{
 			Debug.Log("Dragon flew off");
-			timer = 5.0f;
-			currentState = DragonState.exit;
-			stallHealth.GetComponentInParent<Canvas>().enabled = false;
-			reticle.GetComponent<SpriteRenderer>().enabled = false;
-			weapon.GetComponent<SpriteRenderer>().enabled = false;
-			tempPos = this.transform.position;
-			tempPos.y += 3.0f;
+			exitDragonState();
 		}
 	}
 
@@ -143,14 +138,20 @@ public class DragonController : MonoBehaviour {
 		if (dragonHealth <= 0)
 		{
 			Debug.Log("Dragon killed!");
-			timer = 5.0f;
-			currentState = DragonState.exit;
-			stallHealth.GetComponentInParent<Canvas>().enabled = false;
-			reticle.GetComponent<SpriteRenderer>().enabled = false;
-			weapon.GetComponent<SpriteRenderer>().enabled = false;
-			tempPos = this.transform.position;
-			tempPos.y += 3.0f;
+			exitDragonState();
 		}
+	}
+
+	void exitDragonState()
+	{
+		timer = 5.0f;
+		currentState = DragonState.exit;
+		stallHealth.GetComponentInParent<Canvas>().enabled = false;
+		reticle.GetComponent<SpriteRenderer>().enabled = false;
+		weapon.GetComponent<SpriteRenderer>().enabled = false;
+		tempPos = this.transform.position;
+		tempPos.y += 3.0f;
+		GameObject.Find("Stress Button").GetComponent<StressController>().decreaseStressRate();
 	}
 
 	public void stopDragonTimer()

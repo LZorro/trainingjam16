@@ -17,6 +17,7 @@ public class CustomerDialog : MonoBehaviour {
 	public Sprite face_angry;
 
 	DragonController dragon;
+	StressController stressButton;
 
 	public float maxResponseTime = 5.0f;
 	public Text responseTimerText;
@@ -38,6 +39,7 @@ public class CustomerDialog : MonoBehaviour {
 		DelayScenario = GameOverScenario - 1;
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = face_neutral;
 		dragon = GameObject.Find("Dragon").GetComponent<DragonController>();
+		stressButton = GameObject.Find("Stress Button").GetComponent<StressController>();
 
 		timer = maxResponseTime;
 
@@ -51,6 +53,9 @@ public class CustomerDialog : MonoBehaviour {
 
 		if (currentScenario != GameOverScenario)
 		{
+			// when this timer expires, the CSR has waiting too long to respond
+			// transition to DelayScenario
+			// if we're in DelayScenario, transition to GameOverScenario
 			timer -= Time.deltaTime;
 			int seconds = Mathf.FloorToInt(timer);
 			string niceTime = string.Format("0:{0:00}", seconds);
@@ -60,6 +65,7 @@ public class CustomerDialog : MonoBehaviour {
 				timer = maxResponseTime;
 				if (currentScenario != DelayScenario)
 				{
+					stressButton.joltStress();
 					lastScenario = currentScenario;
 					LoadScenario(DelayScenario);
 				}
@@ -67,6 +73,7 @@ public class CustomerDialog : MonoBehaviour {
 				{
 					currentScenario = GameOverScenario;
 					dragon.stopDragonTimer();
+					stressButton.stopStress();
 					LoadScenario(GameOverScenario);
 				}
 			}
@@ -74,6 +81,7 @@ public class CustomerDialog : MonoBehaviour {
 		else
 		{
 			dragon.stopDragonTimer();
+			stressButton.stopStress();
 		}
 	
 	}
@@ -87,6 +95,8 @@ public class CustomerDialog : MonoBehaviour {
 
 	void LoadScenario(int currSen)
 	{
+		// TODO: alter Scenarion based on Stress level (alternate responses, mostly negative)
+
 		currentScenario = currSen;
 		XmlNode node1 = scenarioList[currSen];
 
@@ -94,9 +104,13 @@ public class CustomerDialog : MonoBehaviour {
 		{
 			dragon.resetDragon();
 			dragon.stopDragonTimer();
+			stressButton.stopStress();
 		}
 		else
+		{
 			dragon.startDragonTimer();
+			stressButton.startStress();
+		}
 
 		foreach (XmlNode items in node1.ChildNodes)
 		{
