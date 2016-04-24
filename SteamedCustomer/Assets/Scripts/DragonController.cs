@@ -28,9 +28,13 @@ public class DragonController : MonoBehaviour {
 	int dragonHealth;
 	Vector3 initPosition;
 
+	void Awake()
+	{
+		initPosition = this.transform.position;
+	}
+
 	// Use this for initialization
 	void Start () {
-		initPosition = this.transform.position;
 		currentState = DragonState.dead;
 		isTimerRunning = true;
 		timer = timeDragonDescend;
