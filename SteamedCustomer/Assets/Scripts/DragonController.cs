@@ -19,20 +19,39 @@ public class DragonController : MonoBehaviour {
 	public float timeDragonDescend;
 	public int maxDragonHealth = 5;
 	public float maxReloadTime = 1.0f;
+	bool isTimerRunning;
 	float timer;
 	float reloadTimer;
 	bool isReloading;
 	Vector3 tempPos;
 	DragonState currentState;
 	int dragonHealth;
+	Vector3 initPosition;
 
 	// Use this for initialization
 	void Start () {
+		initPosition = this.transform.position;
 		currentState = DragonState.dead;
+		isTimerRunning = true;
 		timer = timeDragonDescend;
 		dragonHealth = maxDragonHealth;
 		reloadTimer = maxReloadTime;
 		isReloading = false;
+	}
+
+	public void resetDragon()
+	{
+		this.transform.position = initPosition;
+		currentState = DragonState.dead;
+		isTimerRunning = true;
+		timer = timeDragonDescend;
+		dragonHealth = maxDragonHealth;
+		reloadTimer = maxReloadTime;
+		isReloading = false;
+		stallHealth.value = stallHealth.maxValue;
+		stallHealth.GetComponentInParent<Canvas>().enabled = false;
+		reticle.GetComponent<SpriteRenderer>().enabled = false;
+		weapon.GetComponent<SpriteRenderer>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -76,7 +95,9 @@ public class DragonController : MonoBehaviour {
 				}
 			break;
 		}
-		timer -= Time.deltaTime;
+
+		if (isTimerRunning)
+			timer -= Time.deltaTime;
 
 		if (isReloading)
 		{
@@ -126,5 +147,15 @@ public class DragonController : MonoBehaviour {
 			tempPos = this.transform.position;
 			tempPos.y += 3.0f;
 		}
+	}
+
+	public void stopDragonTimer()
+	{
+		isTimerRunning = false;
+	}
+
+	public void startDragonTimer()
+	{
+		isTimerRunning = true;
 	}
 }

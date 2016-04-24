@@ -1425,7 +1425,7 @@ MonoBehaviour:
   face_neutral: {fileID: 21300000, guid: 84bc2897407a9bf4e9d1a584acbfce1a, type: 3}
   face_happy: {fileID: 21300000, guid: c7ca12125e53b984a86d491c87f0e26d, type: 3}
   face_angry: {fileID: 21300000, guid: 2a099e6abc2a29c4d88f9838736d2382, type: 3}
-  maxResponseTime: 5
+  maxResponseTime: 7
   responseTimerText: {fileID: 636861150}
   GameOverScenario: 4
   DelayScenario: 3

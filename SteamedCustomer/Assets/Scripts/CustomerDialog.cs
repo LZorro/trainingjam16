@@ -16,6 +16,8 @@ public class CustomerDialog : MonoBehaviour {
 	public Sprite face_happy;
 	public Sprite face_angry;
 
+	DragonController dragon;
+
 	public float maxResponseTime = 5.0f;
 	public Text responseTimerText;
 	float timer;
@@ -35,13 +37,15 @@ public class CustomerDialog : MonoBehaviour {
 		lastScenario = 0;
 		DelayScenario = GameOverScenario - 1;
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = face_neutral;
+		dragon = GameObject.Find("Dragon").GetComponent<DragonController>();
 
 		timer = maxResponseTime;
 
 		InitScript();
 		LoadScenario(currentScenario);
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
 
@@ -49,14 +53,27 @@ public class CustomerDialog : MonoBehaviour {
 		{
 			timer -= Time.deltaTime;
 			int seconds = Mathf.FloorToInt(timer);
-			//string niceTime = string.Format("0:{1:00}", seconds);
-			responseTimerText.text = seconds.ToString();
+			string niceTime = string.Format("0:{0:00}", seconds);
+			responseTimerText.text = niceTime.ToString();
 			if (timer <= 0.0f)
 			{
 				timer = maxResponseTime;
-				lastScenario = currentScenario;
-				LoadScenario(DelayScenario);
+				if (currentScenario != DelayScenario)
+				{
+					lastScenario = currentScenario;
+					LoadScenario(DelayScenario);
+				}
+				else
+				{
+					currentScenario = GameOverScenario;
+					dragon.stopDragonTimer();
+					LoadScenario(GameOverScenario);
+				}
 			}
+		}
+		else
+		{
+			dragon.stopDragonTimer();
 		}
 	
 	}
@@ -72,6 +89,14 @@ public class CustomerDialog : MonoBehaviour {
 	{
 		currentScenario = currSen;
 		XmlNode node1 = scenarioList[currSen];
+
+		if (currSen == 0)
+		{
+			dragon.resetDragon();
+			dragon.stopDragonTimer();
+		}
+		else
+			dragon.startDragonTimer();
 
 		foreach (XmlNode items in node1.ChildNodes)
 		{
@@ -129,6 +154,8 @@ public class CustomerDialog : MonoBehaviour {
 		Debug.Log("New emo: " + emoLevel);
 
 		setFace();
+
+		timer = maxResponseTime;
 
 		LoadScenario(nextprompt);
 	}
