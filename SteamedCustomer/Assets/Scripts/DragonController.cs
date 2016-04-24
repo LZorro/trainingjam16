@@ -14,15 +14,25 @@ public class DragonController : MonoBehaviour {
 
 	//public GameObject customer;
 	public Slider stallHealth;
+	public GameObject reticle;
+	public GameObject weapon;
 	public float timeDragonDescend;
+	public int maxDragonHealth = 5;
+	public float maxReloadTime = 1.0f;
 	float timer;
+	float reloadTimer;
+	bool isReloading;
 	Vector3 tempPos;
 	DragonState currentState;
+	int dragonHealth;
 
 	// Use this for initialization
 	void Start () {
 		currentState = DragonState.dead;
 		timer = timeDragonDescend;
+		dragonHealth = maxDragonHealth;
+		reloadTimer = maxReloadTime;
+		isReloading = false;
 	}
 	
 	// Update is called once per frame
@@ -36,13 +46,15 @@ public class DragonController : MonoBehaviour {
 					currentState = DragonState.enter;
 					timer = 5.0f;  // 5 seconds to descend
 					stallHealth.GetComponentInParent<Canvas>().enabled = true;
+					reticle.GetComponent<SpriteRenderer>().enabled = true;
+					weapon.GetComponent<SpriteRenderer>().enabled = true;
 					tempPos = this.transform.position;
 					tempPos.y -= 3.0f;
 				}
 			break;
 
 			case DragonState.enter:
-				this.transform.position = Vector3.MoveTowards(this.transform.position, tempPos, 0.1f);
+				this.transform.position = Vector3.MoveTowards(this.transform.position, tempPos, 0.02f);
 				if (timer <= 0.0f)
 				{
 					currentState = DragonState.attack;
@@ -60,10 +72,22 @@ public class DragonController : MonoBehaviour {
 					currentState = DragonState.dead;
 					timer = timeDragonDescend;
 					stallHealth.value = stallHealth.maxValue;
+					dragonHealth = maxDragonHealth;
 				}
 			break;
 		}
 		timer -= Time.deltaTime;
+
+		if (isReloading)
+		{
+			reloadTimer -= Time.deltaTime;
+			if (reloadTimer <= 0)
+			{
+				isReloading = false;
+				reloadTimer = maxReloadTime;
+			}
+		}
+			
 	}
 
 	void damageStall()
@@ -71,9 +95,34 @@ public class DragonController : MonoBehaviour {
 		stallHealth.value -= 1;
 		if (stallHealth.value <= 0)
 		{
+			Debug.Log("Dragon flew off");
 			timer = 5.0f;
 			currentState = DragonState.exit;
 			stallHealth.GetComponentInParent<Canvas>().enabled = false;
+			reticle.GetComponent<SpriteRenderer>().enabled = false;
+			weapon.GetComponent<SpriteRenderer>().enabled = false;
+			tempPos = this.transform.position;
+			tempPos.y += 3.0f;
+		}
+	}
+
+	void OnMouseDown()
+	{
+		//Debug.Log("DRAGON HIT");
+		if (!isReloading)
+		{
+			dragonHealth--;
+			isReloading = true;
+		}
+
+		if (dragonHealth <= 0)
+		{
+			Debug.Log("Dragon killed!");
+			timer = 5.0f;
+			currentState = DragonState.exit;
+			stallHealth.GetComponentInParent<Canvas>().enabled = false;
+			reticle.GetComponent<SpriteRenderer>().enabled = false;
+			weapon.GetComponent<SpriteRenderer>().enabled = false;
 			tempPos = this.transform.position;
 			tempPos.y += 3.0f;
 		}
