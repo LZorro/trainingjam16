@@ -11,17 +11,24 @@
 	</scenario>
 	<scenario>
 		<prompt>Oh. Thank you.</prompt>
-		<response1 diff="30" next="3">Have a nice day!</response1>
-		<response2 diff="20" next="3">You're welcome.</response2>
-		<response3 diff="0" next="3"></response3>
-		<response4 diff="0" next="3"></response4>
+		<response1 diff="30" next="4">Have a nice day!</response1>
+		<response2 diff="20" next="4">You're welcome.</response2>
+		<response3 diff="0" next="4"></response3>
+		<response4 diff="0" next="4"></response4>
 	</scenario>
 	<scenario>
 		<prompt>SCREW YOU</prompt>
-		<response1 diff="50" next="3">I'm sorry!</response1>
-		<response2 diff="20" next="3">Whatever.</response2>
-		<response3 diff="-50" next="3">Yeah, get lost!</response3>
-		<response4 diff="0" next="3"></response4>
+		<response1 diff="50" next="4">I'm sorry!</response1>
+		<response2 diff="20" next="4">Whatever.</response2>
+		<response3 diff="-50" next="4">Yeah, get lost!</response3>
+		<response4 diff="0" next="4"></response4>
+	</scenario>
+	<scenario>
+		<prompt>Um, excuse me???</prompt>
+		<response1 diff="20" next="1">Yes! Sorry...</response1>
+		<response2 diff="-100" next="4">Huh?</response2>
+		<response3 diff="0" next="4"></response3>
+		<response4 diff="0" next="4"></response4>
 	</scenario>
 	<scenario>
 		<prompt>GAME OVER</prompt>

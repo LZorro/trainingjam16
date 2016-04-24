@@ -16,15 +16,27 @@ public class CustomerDialog : MonoBehaviour {
 	public Sprite face_happy;
 	public Sprite face_angry;
 
+	public float maxResponseTime = 5.0f;
+	public Text responseTimerText;
+	float timer;
+
 	XmlDocument dialogScript;
 	XmlNodeList scenarioList;
 	int emoLevel;
 	int currentScenario;
+	int lastScenario;
+	public int GameOverScenario = 4;
+	public int DelayScenario = 3;
+
 
 	// Use this for initialization
 	void Start () {
 		currentScenario = 0;
+		lastScenario = 0;
+		DelayScenario = GameOverScenario - 1;
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = face_neutral;
+
+		timer = maxResponseTime;
 
 		InitScript();
 		LoadScenario(currentScenario);
@@ -32,6 +44,20 @@ public class CustomerDialog : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (currentScenario != GameOverScenario)
+		{
+			timer -= Time.deltaTime;
+			int seconds = Mathf.FloorToInt(timer);
+			//string niceTime = string.Format("0:{1:00}", seconds);
+			responseTimerText.text = seconds.ToString();
+			if (timer <= 0.0f)
+			{
+				timer = maxResponseTime;
+				lastScenario = currentScenario;
+				LoadScenario(DelayScenario);
+			}
+		}
 	
 	}
 
@@ -44,6 +70,7 @@ public class CustomerDialog : MonoBehaviour {
 
 	void LoadScenario(int currSen)
 	{
+		currentScenario = currSen;
 		XmlNode node1 = scenarioList[currSen];
 
 		foreach (XmlNode items in node1.ChildNodes)
@@ -83,6 +110,11 @@ public class CustomerDialog : MonoBehaviour {
 				csrResponse4.GetComponent<CSRResponseClick>().nextPrompt = int.Parse(items.Attributes["next"].Value);
 			}
 		}
+
+		if (currSen == DelayScenario)
+			csrResponse1.GetComponent<CSRResponseClick>().nextPrompt = lastScenario;
+
+		Debug.Log("Current Scenario = " + currentScenario);
 			
 	}
 
