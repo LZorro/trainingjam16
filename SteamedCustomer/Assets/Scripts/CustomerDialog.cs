@@ -28,8 +28,8 @@ public class CustomerDialog : MonoBehaviour {
 	int emoLevel;
 	int currentScenario;
 	int lastScenario;
-	public int GameOverScenario = 4;
-	public int DelayScenario = 3;
+	public int GameOverScenario = 13;
+	public int DelayScenario = 12;
 
 
 	// Use this for initialization
@@ -153,7 +153,7 @@ public class CustomerDialog : MonoBehaviour {
 		if (currSen == DelayScenario)
 			csrResponse1.GetComponent<CSRResponseClick>().nextPrompt = lastScenario;
 
-		Debug.Log("Current Scenario = " + currentScenario);
+		//Debug.Log("Current Scenario = " + currentScenario);
 			
 	}
 

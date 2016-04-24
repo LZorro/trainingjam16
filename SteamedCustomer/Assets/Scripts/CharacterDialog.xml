@@ -1,0 +1,116 @@
+﻿<conversation>
+
+	<scenario>
+		<prompt> </prompt>
+		<emoLevel>50</emoLevel>
+		<response1 diff="0" next="1">Thank you for coming to Steam Powered Augments, my name is Max. How can I help you today?</response1>
+		<response2 diff="0" next="1"></response2>
+		<response3 diff="0" next="1"></response3>
+		<response4 diff="0" next="1"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt>Yeah I got this cog arm two weeks ago and it just fell off.</prompt>
+		<response1 diff="-5" next="2">Okay, I can help you out with that.  Can I get your part number?</response1>
+		<response2 diff="20" next="3">I can understand how upsetting that can be when you get a faulty part.  I can help you with this situation.  May I ask you a few questions so I can pull up your information?</response2>
+		<response3 diff="0" next="3">I will be able to help you with this. Is it okay if I get some information first?</response3>
+		<response4 diff="-10" next="4">I may be able to help you out with this situation.  First, I'm going to need your name, address, part number, and employer.</response4>
+	</scenario>
+
+	<scenario>
+		<prompt>The part number is IUG398623.</prompt>
+		<response1 diff="10" next="5">Thank you. Just to confirm, the part number is IUG398623. What caused the arm to fall off?</response1>
+		<response2 diff="-30" next="6">Okay. How did you break it?</response2>
+		<response3 diff="5" next="5">Thank you for the part number.  How did this happen?</response3>
+		<response4 diff="0" next="5">What caused this?</response4>
+	</scenario>
+
+	<scenario>
+		<prompt>Okay.</prompt>
+		<response1 diff="30" next="11">All right. Can I get your name, part number, and how the arm fell off?</response1>
+		<response2 diff="0" next="5">What caused this?</response2>
+		<response3 diff="-30" next="6">Okay.  How did you break it?</response3>
+		<response4 diff="0" next="5"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt>Why?</prompt>
+		<response1 diff="5" next="3"> The reason we need this is so I can pull up your information so that I can help you. </response1>
+		<response2 diff="10" next="3"> The reason we need this is so I can pull up your information so that I can help you better.</response2>
+		<response3 diff="-5" next="3"> It's company policy. </response3>
+		<response4 diff="0" next="12"> </response4> 
+	</scenario>
+
+	<scenario>
+		<prompt> I was basically securing the rope on my dirigible when the arm just popped off. </prompt>
+		<response1 diff="5" next="10"> Okay. Go ahead and leave the arm with me, we'll fix the issue.  Is there anything else I can help you with? </response1>
+		<response2 diff="30" next="8">  Just so I understand, you were securing your dirigible and the arm just popped off.  We can fix this. You can leave the arm with us, and either pick it up later of have it mailed to you.  Which would you prefer?</response2>
+		<response3 diff="-40" next="7"> It sounds like you were overstressing the arm, and therefore it's your fault.  There's a 1000 gold fee to fix this.  Do you want to fix this or not? </response3>
+		<response4 diff="0" next="12">  </response4>
+	</scenario>
+
+	<scenario>
+		<prompt> What makes you think I broke it?  What kind of stupid morons are they hiring here? </prompt>
+		<response1 diff="15" next="8">I apologize. We'd be happy to fix this for you.  You just need to leave the arm here, and you can either pick it up later or we can mail it to you.  Which would you prefer?</response1>
+		<response2 diff="-40" next="7">Our products are sturdy and don't break on their own.  You must have done something to cause this to happen.  If you want this fixed, it will cost 1000 gold.  Do you want this fixed, yes or no?</response2>
+		<response3 diff="0" next="12"></response3>
+		<response4 diff="0" next="12"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt>Your company sucks! I'm never shopping here again!  </prompt>
+		<response1 diff="0" next="13"></response1>
+		<response2 diff="0" next="13"></response2>
+		<response3 diff="0" next="13"></response3>
+		<response4 diff="0" next="13"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt> I live in town, so I'll just pick it up when it's ready. </prompt>
+		<response1 diff="20" next="9">Good to hear that you live in town.  This will be ready in 3 business days.  Is there anything else I can do to help you out?</response1>
+		<response2 diff="0" next="13">It will be ready in 3 business days.  Thank you for coming to Steam Powered Augments.</response2>
+		<response3 diff="-5" next="13">Thank you for coming to Steam Powered Augments.</response3>
+		<response4 diff="0" next="12"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt>No, I'm good.  </prompt>
+		<response1 diff="10" next="13">Thank you for coming to Steam Powered Augments.  Have a nice day.</response1>
+		<response2 diff="0" next="13"></response2>
+		<response3 diff="0" next="13"></response3>
+		<response4 diff="0" next="13"></response4>
+	</scenario>
+
+		<scenario>
+		<prompt>No, I'm good.  </prompt>
+		<response1 diff="-5" next="13">Thank you for coming to Steam Powered Augments.  Have a nice day.</response1>
+		<response2 diff="0" next="13"></response2>
+		<response3 diff="0" next="13"></response3>
+		<response4 diff="0" next="13"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt> My name is Sam, the part number is IUG398623, and I was securing my dirigible when the arm just popped off.</prompt>
+		<response1 diff="40" next="8">Thank you, Sam.  Just to confirm, your number is IUG398623, and it's unfortunate to hear this happened to you.  We are able to fix this.  It'll take 3 business days, you can either pick it up when it's ready or we can mail it to you.  Which would you prefer?</response1>
+		<response2 diff="-10" next="13">Just leave it with us and we'll fix it.  Thank you for coming to Steam Powered Augments.</response2>
+		<response3 diff="0" next="13">Thank you for your information, Sam.  We'll get this fixed for you, it'll be ready in 3 days.  Just come and pick it up then.  Thank you for coming to Steam Powered Augments.</response3>
+		<response4 diff="-20" next="13">I got your information. Thank you for coming to Steam Powered Augments.</response4>
+	</scenario>
+
+	<scenario>
+		<prompt>Um, excuse me??</prompt>
+		<response1 diff="0" next="">Yes!  Sorry...</response1>
+		<response2 diff="-25" next="13">Huh?</response2>
+		<response3 diff="0" next="13"></response3>
+		<response4 diff="0" next="13"></response4>
+	</scenario>
+
+	<scenario>
+		<prompt>GAME OVER</prompt>
+		<response1 diff="0" next="0">(Click to restart.)</response1>
+		<response2 diff="0" next="0"></response2>
+		<response3 diff="0" next="0"></response3>
+		<response4 diff="0" next="0"></response4>
+	</scenario>
+
+</conversation>

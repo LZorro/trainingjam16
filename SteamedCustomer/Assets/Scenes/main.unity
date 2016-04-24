@@ -1481,16 +1481,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442a5623e2792604ba5b128a654da7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptFile: {fileID: 4900000, guid: da99664e7a7c7114e919af7520c2940a, type: 3}
+  scriptFile: {fileID: 4900000, guid: de0b7f7e66dd14745a77d51ab7d1df57, type: 3}
   customerPrompt: {fileID: 83333732}
   csrResponse1: {fileID: 284376275}
   csrResponse2: {fileID: 815542418}
   csrResponse3: {fileID: 1890577308}
   csrResponse4: {fileID: 2013625247}
-  face_neutral: {fileID: 21300000, guid: 7c1c8be8ef602bb4e8fb8e4473ee81a4, type: 3}
+  face_neutral: {fileID: 21300000, guid: d3db238d547f3a0498d292f01ea60d50, type: 3}
   face_happy: {fileID: 21300000, guid: 593fca32c80224b43b4bc28cccf209f6, type: 3}
-  face_angry: {fileID: 21300000, guid: d3db238d547f3a0498d292f01ea60d50, type: 3}
-  maxResponseTime: 7
+  face_angry: {fileID: 21300000, guid: 7c1c8be8ef602bb4e8fb8e4473ee81a4, type: 3}
+  maxResponseTime: 16
   responseTimerText: {fileID: 636861150}
   GameOverScenario: 4
   DelayScenario: 3
